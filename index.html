@@ -14,16 +14,18 @@
     <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Navigation öffnen">
 
     <aside class="sidebar" aria-label="Hauptnavigation">
+        <!-- Accessibility: logo images use lazy loading to improve performance -->
         <a class="logo" href="index.html" aria-label="Zur Startseite">
-            <img src="images/logo.png" alt="Logo Ana Sulimanovic">
+            <img src="images/logo.png" alt="Logo Ana Sulimanovic" loading="lazy">
         </a>
         <label class="menu-button" for="nav-toggle" aria-label="Menü öffnen">
             <span></span>
             <span></span>
             <span></span>
         </label>
+        <!-- Navigation: aria-current added to the active page for screenreader clarity -->
         <nav class="navigation">
-            <a class="active" href="index.html">Über mich</a>
+            <a class="active" href="index.html" aria-current="page">Über mich</a>
             <a href="faehigkeiten.html">Fähigkeiten</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="kontakt.html">Kontakt</a>
@@ -33,7 +35,7 @@
     <main class="content" id="main">
         <section class="section">
             <div class="intro-card">
-                <img class="profile-image" src="images/profile.jpg" alt="Portrait von Ana Sulimanovic">
+                <img class="profile-image" src="images/profile.jpg" alt="Portrait von Ana Sulimanovic" loading="lazy">
                 <div class="intro-text">
                     <h1>Hallo, ich bin Ana !</h1>
                     <p>Motiviert. Lernbereit. Offen für Neues.</p>

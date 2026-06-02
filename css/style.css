@@ -5,6 +5,10 @@
     --line: #3B1F1F;
     --skill-bar-bg: #595959;
     --skill-bar-fill: #522504;
+    /* Success / notification colors (used instead of hardcoded values) */
+    --success-border: #2e7d32;
+    --success-bg: #dff5e1;
+    --success-text: #2e7d32;
     --text: #000000;
     --button-text: #FFFFFF;
     --shadow: 0 12px 28px rgba(59, 31, 31, 0.16);
@@ -73,7 +77,8 @@ a {
     z-index: 20;
     width: var(--sidebar-width);
     padding: 58px 28px 42px;
-    background: #B8AEAE;
+    /* Use sidebar bg variable for easier theming and maintenance */
+    background: var(--sidebar-bg);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -417,7 +422,8 @@ a {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #522504;
+    /* Use skill bar fill variable instead of hardcoded color */
+    background: var(--skill-bar-fill);
     color: var(--button-text);
     font-size: 26px;
     font-weight: 700;
@@ -580,10 +586,11 @@ a {
     display: none;
     margin: 0 0 20px;
     padding: 15px;
-    border: 1px solid #2e7d32;
+    /* Replaced hardcoded success colors with variables for consistency */
+    border: 1px solid var(--success-border);
     border-radius: 12px;
-    background: #dff5e1;
-    color: #2e7d32;
+    background: var(--success-bg);
+    color: var(--success-text);
     font-weight: 700;
     opacity: 0;
 }
@@ -696,7 +703,8 @@ textarea:focus {
 .footer {
     margin-left: var(--sidebar-width);
     padding: 24px;
-    background: #B8AEAE;
+    /* Use sidebar background variable to avoid hardcoded color */
+    background: var(--sidebar-bg);
     text-align: center;
 }
 
@@ -803,7 +811,7 @@ textarea:focus {
         background: var(--text);
     }
 
-    .navigation {
+        .navigation {
         position: absolute;
         top: 82px;
         left: 0;
@@ -811,7 +819,8 @@ textarea:focus {
         width: 100%;
         padding: 18px;
         gap: 10px;
-        background: #B8AEAE;
+        /* mobile menu uses the same sidebar background variable */
+        background: var(--sidebar-bg);
         box-shadow: 0 12px 22px rgba(59, 31, 31, 0.12);
     }
 
