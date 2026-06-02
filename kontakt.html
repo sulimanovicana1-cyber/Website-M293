@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sulimanovic | Kontakt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Navigation öffnen">
+
+    <aside class="sidebar" aria-label="Hauptnavigation">
+        <a class="logo" href="index.html" aria-label="Zur Startseite">
+            <img src="images/logo.png" alt="Logo Ana Sulimanovic">
+        </a>
+        <label class="menu-button" for="nav-toggle" aria-label="Menü öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="navigation">
+            <a href="index.html">Über mich</a>
+            <a href="faehigkeiten.html">Fähigkeiten</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a class="active" href="kontakt.html">Kontakt</a>
+        </nav>
+    </aside>
+
+    <main class="content" id="main">
+        <section class="section">
+            <header class="section-header">
+                <p class="section-kicker">Kontakt</p>
+                <h2>Schreib mir</h2>
+                <p>Du hast Fragen oder möchtest in Kontakt treten? Ich freue mich von dir zu hören.</p>
+            </header>
+
+            <div class="contact-layout">
+                <article class="contact-video-card" aria-label="Kontaktvideo">
+                    <video class="contact-video" src="videos/kontakt-video.mp4" controls preload="metadata">
+                        Dein Browser unterstützt das Video-Element nicht.
+                    </video>
+                </article>
+
+                <article class="box-card contact-panel">
+                    <section class="contact-panel-section contact-data">
+                        <h3>Kontaktdaten</h3>
+                        <dl>
+                            <div>
+                                <dt>Name</dt>
+                                <dd>Ana Sulimanovic</dd>
+                            </div>
+                            <div>
+                                <dt>Adresse</dt>
+                                <dd>Grünaustrasse 12, 9016 St.Gallen</dd>
+                            </div>
+                            <div>
+                                <dt>E-Mail</dt>
+                                <dd><a href="mailto:sulimanovicana1@gmail.com">sulimanovicana1@gmail.com</a></dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="contact-panel-section">
+                        <p class="success-message" id="contact-success" aria-live="polite">✓ Deine Nachricht wurde erfolgreich gesendet.</p>
+                        <h3>Nachricht senden</h3>
+                        <form class="contact-form" action="#" method="post">
+                            <div class="form-split">
+                                <div class="form-row">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" placeholder="Dein Name" autocomplete="name" required>
+                                </div>
+                                <div class="form-row">
+                                    <label for="email">E-Mail</label>
+                                    <input type="email" id="email" name="email" placeholder="deine@email.ch" autocomplete="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="subject">Betreff</label>
+                                <input type="text" id="subject" name="subject" placeholder="Worum geht es ?" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="message">Nachricht</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Deine Nachricht..." required></textarea>
+                            </div>
+                            <button class="submit-button" type="submit">Senden</button>
+                        </form>
+                    </section>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Ana Sulimanovic · Alle Rechte vorbehalten</p>
+    </footer>
+    <script>
+        const contactForm = document.querySelector(".contact-form");
+        const successMessage = document.querySelector("#contact-success");
+        let successTimer;
+
+        contactForm.addEventListener("submit", (event) => {
+            if (!contactForm.checkValidity()) {
+                return;
+            }
+
+            event.preventDefault();
+            contactForm.reset();
+            successMessage.classList.add("is-visible");
+
+            clearTimeout(successTimer);
+            successTimer = setTimeout(() => {
+                successMessage.classList.remove("is-visible");
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
